@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: br.com.aluraflix
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [annotation-api, app-name, assertj, data, data-jpa, flyway, gradle, h2, hibernate-validator, http-client, jdbc-hikari, junit, kotlin, kotlin-application, kotlin-extension-functions, log4j2, management, mockito, netty-server, openapi, readme, shade, yaml]
