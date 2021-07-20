@@ -50,6 +50,9 @@ dependencies {
 
     testImplementation("org.mockito:mockito-core")
 
+    implementation("io.micronaut.micrometer:micronaut-micrometer-core")
+    implementation("io.micronaut.micrometer:micronaut-micrometer-registry-statsd")
+    implementation("io.micronaut.micrometer:micronaut-micrometer-registry-prometheus")
 }
 
 
