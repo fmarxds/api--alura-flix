@@ -3,6 +3,13 @@ micronaut:
     name: apiAluraFlix
   server:
     port: 5000
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        step: PT1M
+        descriptions: true
 
 datasources:
   default:
@@ -18,3 +25,20 @@ flyway:
   datasources:
     default:
       enabled: true
+
+endpoints:
+  all.path: /actuator
+  beans:
+    enabled: true
+    sensitive: false
+  health:
+    enabled: true
+    sensitive: false
+  flyway:
+    enabled: true
+    sensitive: false
+  metrics:
+    enabled: true
+    sensitive: false
+  prometheus:
+    sensitive: false

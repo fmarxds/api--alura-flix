@@ -1,0 +1,10 @@
+FROM oracle/graalvm-ce:19.0.0 as graalvm
+COPY . /home/app/api--alura-flix-native
+WORKDIR /home/app/api--alura-flix-native
+RUN gu install native-image
+RUN native-image --no-server -cp build/libs/*.jar
+
+FROM frolvlad/alpine-glibc
+EXPOSE 8080
+COPY --from=graalvm /home/app/api--alura-flix-native .
+ENTRYPOINT ["./api--alura-flix-0.1-all"]
