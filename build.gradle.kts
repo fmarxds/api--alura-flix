@@ -65,6 +65,10 @@ java {
     sourceCompatibility = JavaVersion.toVersion("11")
 }
 
+task("stage") {
+    dependsOn("build", "clean")
+}
+
 tasks {
     compileKotlin {
         kotlinOptions {
@@ -76,6 +80,4 @@ tasks {
             jvmTarget = "11"
         }
     }
-
-
 }
