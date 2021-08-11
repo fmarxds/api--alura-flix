@@ -11,10 +11,13 @@ import io.micronaut.http.HttpResponse
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.*
 import io.micronaut.http.uri.UriBuilder
+import io.micronaut.security.annotation.Secured
+import io.micronaut.security.rules.SecurityRule
 import io.micronaut.validation.Validated
 import javax.validation.Valid
 
 @Validated
+@Secured(SecurityRule.IS_AUTHENTICATED)
 @Controller(
     value = "/videos",
     produces = [MediaType.APPLICATION_JSON],
@@ -30,6 +33,12 @@ class VideoController(
         @QueryValue(value = "search", defaultValue = "") busca: String,
     ): Page<VideoOutputDTO> {
         return videoService.listAll(busca, pageable).map { it.toOutputDTO() }
+    }
+
+    @Get("/free")
+    @Secured(SecurityRule.IS_ANONYMOUS)
+    fun listAllFree(): Page<VideoOutputDTO> {
+        return videoService.listAll("", Pageable.from(0, 2)).map { it.toOutputDTO() }
     }
 
     @Get("/{id}")

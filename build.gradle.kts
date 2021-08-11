@@ -31,6 +31,7 @@ dependencies {
     implementation("io.micronaut:micronaut-management")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-validation")
+    implementation("io.micronaut.security:micronaut-security")
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.micronaut.flyway:micronaut-flyway")

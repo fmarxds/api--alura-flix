@@ -16,10 +16,13 @@ import io.micronaut.http.HttpStatus
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.*
 import io.micronaut.http.uri.UriBuilder
+import io.micronaut.security.annotation.Secured
+import io.micronaut.security.rules.SecurityRule
 import io.micronaut.validation.Validated
 import javax.validation.Valid
 
 @Validated
+@Secured(SecurityRule.IS_AUTHENTICATED)
 @Controller(
     value = "/categorias",
     produces = [MediaType.APPLICATION_JSON],
