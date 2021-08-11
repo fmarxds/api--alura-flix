@@ -7,6 +7,8 @@ import br.com.aluraflix.mapper.toModel
 import br.com.aluraflix.model.CategoriaModel
 import br.com.aluraflix.repository.CategoriaRepository
 import br.com.aluraflix.service.CategoriaService
+import io.micronaut.data.model.Page
+import io.micronaut.data.model.Pageable
 import javax.inject.Singleton
 import javax.persistence.PersistenceException
 import javax.validation.ConstraintViolationException
@@ -16,8 +18,8 @@ class CategoriaServiceImpl(
     private val categoriaRepository: CategoriaRepository,
 ) : CategoriaService {
 
-    override fun listAll(): Collection<CategoriaModel> {
-        return categoriaRepository.findAll()
+    override fun listAll(pageable: Pageable): Page<CategoriaModel> {
+        return categoriaRepository.findAll(pageable)
     }
 
     override fun listOne(id: Long): CategoriaModel {

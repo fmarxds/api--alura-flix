@@ -2,10 +2,12 @@ package br.com.aluraflix.service
 
 import br.com.aluraflix.dto.input.CategoriaInputDTO
 import br.com.aluraflix.model.CategoriaModel
+import io.micronaut.data.model.Page
+import io.micronaut.data.model.Pageable
 
 interface CategoriaService {
 
-    fun listAll(): Collection<CategoriaModel>
+    fun listAll(pageable: Pageable): Page<CategoriaModel>
 
     fun listOne(id: Long): CategoriaModel
 

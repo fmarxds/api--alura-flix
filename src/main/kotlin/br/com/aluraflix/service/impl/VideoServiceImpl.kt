@@ -7,6 +7,8 @@ import br.com.aluraflix.model.VideoModel
 import br.com.aluraflix.repository.VideoRepository
 import br.com.aluraflix.service.CategoriaService
 import br.com.aluraflix.service.VideoService
+import io.micronaut.data.model.Page
+import io.micronaut.data.model.Pageable
 import javax.inject.Singleton
 
 @Singleton
@@ -15,8 +17,8 @@ class VideoServiceImpl(
     private val categoriaService: CategoriaService,
 ) : VideoService {
 
-    override fun listAll(busca: String): Collection<VideoModel> {
-        return if (busca.isBlank()) videoRepository.findAll() else videoRepository.findAllByTituloIlike(busca)
+    override fun listAll(busca: String, pageable: Pageable): Page<VideoModel> {
+        return if (busca.isBlank()) videoRepository.findAll(pageable) else videoRepository.findAllByTituloIlike(busca, pageable)
     }
 
     override fun listOne(id: Long): VideoModel {

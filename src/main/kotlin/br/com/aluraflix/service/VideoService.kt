@@ -2,10 +2,12 @@ package br.com.aluraflix.service
 
 import br.com.aluraflix.dto.input.VideoInputDTO
 import br.com.aluraflix.model.VideoModel
+import io.micronaut.data.model.Page
+import io.micronaut.data.model.Pageable
 
 interface VideoService {
 
-    fun listAll(busca: String): Collection<VideoModel>
+    fun listAll(busca: String, pageable: Pageable): Page<VideoModel>
 
     fun listOne(id: Long): VideoModel
 

@@ -3,6 +3,11 @@ micronaut:
     name: apiAluraFlix
   server:
     port: 5000
+  data:
+    pageable:
+      default-page-size: 10
+      max-page-size: 50
+      sort-ignore-case: true
   metrics:
     enabled: true
     export:
