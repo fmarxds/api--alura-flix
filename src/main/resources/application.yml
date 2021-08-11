@@ -20,10 +20,10 @@ micronaut:
 
 datasources:
   default:
-    url: ${JDBC_URL:`jdbc:h2:mem:aluraflix_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
-    driverClassName: ${JDBC_DRIVER:org.h2.Driver}
-    username: ${JDBC_USER:sa}
-    password: ${JDBC_PASSWORD:""}
+    url: ${JDBC_DATABASE_URL:`jdbc:h2:mem:aluraflix_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
+    driverClassName: ${JDBC_DATABASE_DRIVER:org.h2.Driver}
+    username: ${JDBC_DATABASE_USERNAME:sa}
+    password: ${JDBC_DATABASE_PASSWORD:""}
 jpa.default.properties.hibernate:
   hbm2ddl.auto: none
   show_sql: true

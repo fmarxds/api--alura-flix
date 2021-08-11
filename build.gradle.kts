@@ -43,6 +43,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     runtimeOnly("com.h2database:h2")
+    runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.apache.logging.log4j:log4j-api:2.14.1")
     runtimeOnly("org.apache.logging.log4j:log4j-slf4j-impl:2.14.1")
     testImplementation("org.assertj:assertj-core")
