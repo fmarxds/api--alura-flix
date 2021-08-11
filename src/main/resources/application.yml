@@ -3,6 +3,11 @@ micronaut:
     name: apiAluraFlix
   server:
     port: 5000
+  data:
+    pageable:
+      default-page-size: 10
+      max-page-size: 50
+      sort-ignore-case: true
   metrics:
     enabled: true
     export:
@@ -10,16 +15,23 @@ micronaut:
         enabled: true
         step: PT1M
         descriptions: true
+  security:
+    enabled: true
 
 datasources:
   default:
-    url: jdbc:h2:mem:aluraflix_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    driverClassName: org.h2.Driver
-    username: sa
-    password: ''
+    url: ${JDBC_URL:`jdbc:h2:mem:aluraflix_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
+    driverClassName: ${JDBC_DRIVER:org.h2.Driver}
+    username: ${JDBC_USER:sa}
+    password: ${JDBC_PASSWORD:""}
 jpa.default.properties.hibernate:
   hbm2ddl.auto: none
   show_sql: true
+
+auth:
+  credential:
+    user: ${AUTH_USER:dev}
+    pass: ${AUTH_PASS:dev}
 
 flyway:
   datasources:

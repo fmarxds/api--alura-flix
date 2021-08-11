@@ -8,16 +8,21 @@ import br.com.aluraflix.exception.CategoriaEmUsoException
 import br.com.aluraflix.mapper.toOutputDTO
 import br.com.aluraflix.service.CategoriaService
 import br.com.aluraflix.service.VideoService
+import io.micronaut.data.model.Page
+import io.micronaut.data.model.Pageable
 import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.*
 import io.micronaut.http.uri.UriBuilder
+import io.micronaut.security.annotation.Secured
+import io.micronaut.security.rules.SecurityRule
 import io.micronaut.validation.Validated
 import javax.validation.Valid
 
 @Validated
+@Secured(SecurityRule.IS_AUTHENTICATED)
 @Controller(
     value = "/categorias",
     produces = [MediaType.APPLICATION_JSON],
@@ -29,8 +34,10 @@ class CategoriaController(
 ) {
 
     @Get
-    fun listAll(): HttpResponse<List<CategoriaOutputDTO>> {
-        return HttpResponse.ok(categoriaService.listAll().map { it.toOutputDTO() })
+    fun listAll(
+        pageable: Pageable,
+    ): Page<CategoriaOutputDTO> {
+        return categoriaService.listAll(pageable).map { it.toOutputDTO() }
     }
 
     @Get("/{id}")
