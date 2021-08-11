@@ -7,6 +7,9 @@ data class VideoOutputDTO(
     @JsonProperty("id")
     val id: Long? = null,
 
+    @JsonProperty("categoriaId")
+    val categoriaId: Long? = null,
+
     @JsonProperty("titulo")
     val titulo: String,
 

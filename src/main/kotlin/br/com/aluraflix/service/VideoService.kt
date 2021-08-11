@@ -5,9 +5,11 @@ import br.com.aluraflix.model.VideoModel
 
 interface VideoService {
 
-    fun listAll(): Collection<VideoModel>
+    fun listAll(busca: String): Collection<VideoModel>
 
     fun listOne(id: Long): VideoModel
+
+    fun listAllByCategoriaId(id: Long): Collection<VideoModel>
 
     fun createOne(videoInputDTO: VideoInputDTO): VideoModel
 

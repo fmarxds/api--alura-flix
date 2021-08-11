@@ -4,14 +4,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.micronaut.core.annotation.Introspected
 import javax.validation.constraints.NotBlank
+import javax.validation.constraints.NotNull
 import javax.validation.constraints.Size
 
 @Introspected
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class VideoInputDTO(
 
+    @JsonProperty("categoriaId")
+    val categoriaId: Long = 1,
+
     @JsonProperty("titulo")
-    @field:Size(min = 5, max = 150, message = "O campo 'titulo' deve ter entre 5 e 150 caracteres")
+    @field:Size(min = 5, max = 100, message = "O campo 'titulo' deve ter entre 5 e 100 caracteres")
     @field:NotBlank(message = "O campo 'titulo' deve ser informado")
     val titulo: String,
 

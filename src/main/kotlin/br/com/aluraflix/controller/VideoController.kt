@@ -22,8 +22,10 @@ class VideoController(
 ) {
 
     @Get
-    fun listAll(): HttpResponse<List<VideoOutputDTO>> {
-        return HttpResponse.ok(videoService.listAll().map { it.toOutputDTO() })
+    fun listAll(
+        @QueryValue("search") busca: String = "",
+    ): HttpResponse<List<VideoOutputDTO>> {
+        return HttpResponse.ok(videoService.listAll(busca).map { it.toOutputDTO() })
     }
 
     @Get("/{id}")
