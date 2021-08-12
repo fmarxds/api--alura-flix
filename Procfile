@@ -1,1 +1,1 @@
-web: java -jar build/libs/api--alura-flix-0.1.jar
+web: java -jar build/libs/api--alura-flix-0.1-all.jar
