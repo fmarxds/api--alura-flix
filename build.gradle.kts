@@ -69,6 +69,10 @@ task("stage") {
     dependsOn("build", "clean")
 }
 
+tasks.build {
+    mustRunAfter("clean")
+}
+
 tasks {
     compileKotlin {
         kotlinOptions {
