@@ -1,1 +1,1 @@
-web: ./gradlew run
+web: java -jar build/libs/api--alura-flix-0.1-all.jar
