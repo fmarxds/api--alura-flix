@@ -24,6 +24,8 @@ datasources:
     driverClassName: ${JDBC_DATABASE_DRIVER:org.h2.Driver}
     username: ${JDBC_DATABASE_USERNAME:sa}
     password: ${JDBC_DATABASE_PASSWORD:""}
+    max-total: 4
+    max-idle: 1
 jpa.default.properties.hibernate:
   hbm2ddl.auto: none
   show_sql: true
