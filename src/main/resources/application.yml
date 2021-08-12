@@ -2,7 +2,7 @@ micronaut:
   application:
     name: apiAluraFlix
   server:
-    port: 5000
+    port: ${PORT:5000}
   data:
     pageable:
       default-page-size: 10
